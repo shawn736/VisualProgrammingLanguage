@@ -123,11 +123,6 @@ public class CanvasViewController: UIViewController {
         // Assemble the code
         assembleCode()
     }
-
-    public override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func assembleCode() {
         let assembled = self.canvas.assemble()
@@ -173,7 +168,10 @@ public class CanvasViewController: UIViewController {
             }
             alert.addAction(action)
         }
-        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+          alert.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(cancelAction)
         // Present it
         self.present(alert, animated: true)
     }
